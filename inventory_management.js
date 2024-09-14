@@ -15,7 +15,25 @@ const inventory = [
 function displayProductDetails(productDetails) {
     let quantity = inventory.quantity; // declaring the quantity variable
     const stockStatus = quantity <= productDetails.lowStockLevel ? "Low Stock" : "In Stock"; //Determining the stock status based on the quantity amount in stock
-    console. log(`Product: ${productDetails.name}\nPrice: $${productDetails.price}\nQuantity: ${productDetails.quantity}\nStock Status: ${stockStatus}`); // displays the product, price, quantity and stock status
+    console.log(`Product: ${productDetails.name}\nPrice: $${productDetails.price}\nQuantity: ${productDetails.quantity}\nStock Status: ${stockStatus}`); // displays the product, price, quantity and stock status
     
 };
 inventory.forEach(productDetails => displayProductDetails(productDetails)); // displays for each product in the inventory array
+
+//Task 3: Function to Update Product Stock After Sales
+
+function updateStock(inventory, unitsSold) { 
+    inventory.quantity -= unitsSold; // calculating the number of units available after sale and updates the inventory amount
+    console.log(`Units Sold: ${unitsSold}\n Remaining Stock: ${inventory.quantity}`); //prints number of units sold and remaining stock
+    
+    if (inventory.quantity <= inventory.lowStockLevel){ // determines if stock amount after sale is less than low stock level amount
+        console.log(`IMPORTANT: ${inventory.name} is has a low stock level!`);
+    }
+
+    else{
+        console.log(`Only ${inventory.quantity} units available`); //informs about stock level
+    }
+};
+
+updateStock(inventory[1],75); // example of function
+        
