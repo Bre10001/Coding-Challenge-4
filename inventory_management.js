@@ -48,3 +48,13 @@ function checkLowStock(inventory){
 };
 
 checkLowStock(inventory); //displays message if stock level is low
+
+// Task 5: Function to Calculate Total Inventory Value
+
+function calculateInventoryValue(inventory){
+    let totalValue = 0 // setting totalValue variable to 0
+    totalValue = inventory.reduce((total, inventory) => totalValue + (inventory.price * inventory.quantity)); // calculating the total value of the inventory
+    return totalValue;
+};
+
+console.log(`Total Inventory Value: $${calculateInventoryValue(inventory)}`); //displaying the total value of inventory
