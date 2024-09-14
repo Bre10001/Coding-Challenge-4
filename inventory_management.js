@@ -37,3 +37,14 @@ function updateStock(inventory, unitsSold) {
 
 updateStock(inventory[1],75); // example of function
         
+// Task 4: Function to Check Low Stock Products
+
+function checkLowStock(inventory){
+    inventory.forEach(inventory => {
+        if (inventory.quantity <= inventory.lowStockLevel){ // determines if inventory is less than stock level
+            console.log(`${inventory.name} is low in stock.`); 
+        }
+    });
+};
+
+checkLowStock(inventory); //displays message if stock level is low
