@@ -35,7 +35,7 @@ function updateStock(inventory, unitsSold) {
     }
 };
 
-updateStock(inventory[1],75); // example of function
+updateStock(inventory[4],5); // example of function
         
 // Task 4: Function to Check Low Stock Products
 
@@ -58,3 +58,19 @@ function calculateInventoryValue(inventory){
 };
 
 console.log(`Total Inventory Value: $${calculateInventoryValue(inventory)}`); //displaying the total value of inventory
+
+// Task 6: Function to Process a Sale
+
+function processSale(productName, unitsSold){
+    const product = inventory.find(item => item.name === productName); // using the find method to find the item
+
+    if (product){
+        updateStock(product, unitsSold); //if item is found, run the updateStock function
+    } else {
+        console.log(`Error: ${productName} is not in the inventory.`);
+    };
+
+};
+
+processSale('Tablet',30,inventory); // example of function
+processSale('Phone',60, inventory); // example of function
